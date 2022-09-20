@@ -1,4 +1,5 @@
 import React from 'react'
+import { Fade } from 'react-reveal'
 import './Section.css'
 
 function Section({ title, description, leftBtnText, rightBtnText, backgroundImg }) {
@@ -6,22 +7,26 @@ function Section({ title, description, leftBtnText, rightBtnText, backgroundImg 
         <div className='section' style={{
             backgroundImage: `url("/images/${backgroundImg}")`
         }}>
-            <div className='section__itemText'>
-                <h1>{title}</h1>
-                <p>{description}</p>
-            </div>
-            <div className='section__buttons'>
-                <div className='section__buttonGroup'>
-                    <div className='section__leftBtn'>
-                        {leftBtnText}
-                    </div>
-                    {rightBtnText &&
-                        <div className='section__rightBtn'>
-                            {rightBtnText}
-                        </div>
-                    }
-
+            <Fade bottom>
+                <div className='section__itemText'>
+                    <h1>{title}</h1>
+                    <p>{description}</p>
                 </div>
+            </Fade>
+            <div className='section__buttons'>
+                <Fade bottom>
+                    <div className='section__buttonGroup'>
+                        <div className='section__leftBtn'>
+                            {leftBtnText}
+                        </div>
+                        {rightBtnText &&
+                            <div className='section__rightBtn'>
+                                {rightBtnText}
+                            </div>
+                        }
+
+                    </div>
+                </Fade>
                 <img className='section__downArrow' src='/images/down-arrow.svg' alt='' />
             </div>
         </div>
